@@ -1,7 +1,12 @@
 [package]
 name = "opt-gen"
-version = "0.1.0"
+version = "0.0.1"
 edition = "2021"
+
+authors = ["litcc <i@litcc.com>"]
+description = "Claims to have a new structure with Option as a field."
+license = "MIT"  # 或者使用适当的许可证
+repository = "https://github.com/litcc/opt-gen"
 
 
 [lib]
