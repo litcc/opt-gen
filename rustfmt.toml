@@ -1,0 +1,51 @@
+edition = "2021"
+#version="Two"
+max_width = 85
+# 固定换行符 LF
+newline_style="Unix"
+# 缩进使用 tab
+#hard_tabs = true
+# 自动排序mod
+reorder_modules=true
+# 自动排序use
+reorder_imports=true
+
+
+# 禁用自动合并宏
+merge_derives = false
+
+# 自动优化导入 (未稳定)
+# Crate:
+#  这是默认值。
+#  所有来自同一个 crate 的导入语句都会被合并到一个单独的 use 语句中。
+# Module:
+#  导入语句会按照模块层级进行分组。
+#  同一模块下的导入语句会被合并到一个 use 语句中。
+# Item:
+#  每个导入项都会单独成为一个 use 语句。
+#  不会对导入语句进行合并。
+# Preserve:
+#  保持原有的导入语句格式不变。
+#  不会对导入语句进行任何合并或格式化。
+imports_granularity="Item"
+# StdExternalCrate 导入模块分组规则 (未稳定)
+# 1. 导入来自 std、core 和 alloc 的模块需要置于前面一组。
+# 2. 导入来自 第三方库的模块 应该置于中间一组。
+# 3. 导入来自本地 self、super和crate前缀的模块，置于后面一组。
+group_imports="StdExternalCrate"
+
+
+use_small_heuristics = "Max"
+comment_width = 100
+wrap_comments = true
+binop_separator = "Back"
+trailing_comma = "Vertical"
+trailing_semicolon = false
+use_field_init_shorthand = true
+format_code_in_doc_comments = true
+doc_comment_code_block_width = 100
+
+
+
+# Ignore automatically-generated code.
+ignore = ["target"]

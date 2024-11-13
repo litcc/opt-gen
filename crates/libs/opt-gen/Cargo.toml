@@ -1,0 +1,15 @@
+[package]
+name = "opt-gen"
+version = "0.1.0"
+edition = "2021"
+
+
+[lib]
+proc-macro = true
+
+[dependencies]
+proc-macro2 = "1"
+quote = "1"
+syn = { version = "2", features = ["full","derive","extra-traits"] }
+rust-format = { version = "0.3" }
+rand = {version = "0.8"}

@@ -1,0 +1,10 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/libs/opt-gen",
+    "crates/tests/opt-gen-test"
+]
+
+
+[workspace.dependencies]
+opt-gen = { path = "crates/libs/opt-gen" }
