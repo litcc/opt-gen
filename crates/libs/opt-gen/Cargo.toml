@@ -1,6 +1,6 @@
 [package]
 name = "opt-gen"
-version = "0.0.1"
+version = "0.0.2"
 edition = "2021"
 
 authors = ["litcc <i@litcc.com>"]
@@ -15,6 +15,6 @@ proc-macro = true
 [dependencies]
 proc-macro2 = "1"
 quote = "1"
-syn = { version = "2", features = ["full","derive","extra-traits"] }
+syn = { version = "2", features = ["full", "derive", "extra-traits", "visit", "visit-mut"] }
 rust-format = { version = "0.3" }
-rand = {version = "0.8"}
+rand = { version = "0.8" }

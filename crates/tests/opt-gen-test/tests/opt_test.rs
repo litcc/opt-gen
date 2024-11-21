@@ -2,7 +2,8 @@
 mod test {
     use std::fmt;
 
-    use opt_gen::{CowOpt, RawOpt};
+    use opt_gen::CowOpt;
+    use opt_gen::RawOpt;
     use serde::de;
     use serde::de::Visitor;
     use serde::Deserialize;
@@ -82,6 +83,7 @@ mod test {
         deserializer.deserialize_any(U64Visitor)
     }
 
+    #[derive(RawOpt)]
     #[derive(Debug, Clone, Serialize, Deserialize)]
     pub struct A {
         pub abc: String,
@@ -103,7 +105,6 @@ mod test {
 
         pub data234: A,
     }
-
 
     #[derive(CowOpt)]
     #[derive(Debug, Clone, Serialize, Deserialize)]

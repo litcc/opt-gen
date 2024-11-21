@@ -1,15 +1,13 @@
 use std::borrow::Cow;
-use rand::{Rng, RngCore};
 
-
+use rand::Rng;
+use rand::RngCore;
 
 /// 生成随机字符数据
 pub trait SaltStrGenerator {
     fn gen_salt<'a>(self, num: usize) -> Cow<'a, str>;
     fn gen_salt_custom<'a>(self, num: usize, chars: Option<&str>) -> Cow<'a, str>;
 }
-
-
 
 const CHARS: &str = "abcdefghijklmnopqrstuvwxyz01234567890";
 
