@@ -134,9 +134,7 @@ pub(crate) fn opt_gen(p0: TokenStream, opt_type: OptType) -> TokenStream {
                 let ref_body = quote! {
                     #( #create_fn_list )*
 
-
                     #struct_attrs
-                    #[automatically_derived]
                     pub struct #change_struct_all {
                         #( #change_fields2, )*
                     }
@@ -251,7 +249,7 @@ pub(crate) fn auto_wrap_serde_with_fn(
                         };
 
                         let code = quote! {
-                            #[inline]
+                            #[inline(always)]
                             #[automatically_derived]
                             fn #new_fn_ident #g (deserializer: D) -> Result<#new_type, D::Error>
                             where
@@ -309,7 +307,7 @@ pub(crate) fn impl_struct_gen(
     let field_item_from = quote! { #( #field_item_from ),* };
 
     let from_gen = quote! {
-        #[automatically_derived]
+
         impl #generics From<#struct_name> for #change_struct #generics {
             fn from(value: #struct_name) -> Self {
                 #change_struct {
@@ -320,7 +318,7 @@ pub(crate) fn impl_struct_gen(
     };
 
     quote! {
-        #[automatically_derived]
+
         impl #struct_name {
             pub fn all_fields() -> &'static [&'static str] {
                 static FIELDS: &'static [&'static str] = &[
@@ -334,7 +332,7 @@ pub(crate) fn impl_struct_gen(
             }
         }
 
-        #[automatically_derived]
+
         impl #generics #change_struct #generics {
             pub fn all_empty(&self) -> bool {
                 return !(#( self.#field_list.is_some() )||*)
@@ -351,7 +349,7 @@ pub(crate) fn impl_struct_gen(
 
         #from_gen
 
-        #[automatically_derived]
+
         impl #generics Default for #change_struct #generics {
             fn default() -> Self {
                 #change_struct {
